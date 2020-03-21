@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
+import android.util.Log;
+
+import java.io.Console;
 
 /**
  * Monitors device battery's level, charging state, and battery temperature.
@@ -11,6 +14,7 @@ import android.os.BatteryManager;
 class BatteryMonitor {
     private IntentFilter ifilter;
     private Intent batteryStatus;
+    private final String TAG = "[BatteryMonitor] ";
 
     /**
      * Constructor for BatteryMonitor class. Initializes the IntentFilter and battery status
@@ -27,7 +31,7 @@ class BatteryMonitor {
      * @return True if battery is full.
      */
     public boolean batteryFull() {
-        int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, 0);
+        int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
         return status == BatteryManager.BATTERY_STATUS_FULL;
     }
 }
