@@ -9,6 +9,7 @@ public class MainActivity extends AppCompatActivity {
 
     BatteryMonitor batteryMonitor;
     TextView batteryFull;
+    TextView batteryLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
          * UI Components
          */
         batteryFull = findViewById(R.id.batteryFull);
+        batteryLevel = findViewById(R.id.batteryLevel);
 
         /*
          * Objects
@@ -26,11 +28,14 @@ public class MainActivity extends AppCompatActivity {
         batteryMonitor = new BatteryMonitor(this);
 
         //TODO Test battery checks.
-        if(batteryMonitor.batteryFull()) {
+        if(batteryMonitor.isBatteryFull()) {
             batteryFull.setText("Battery full");
         } else {
             batteryFull.setText("Not full");
         }
+
+        String batteryPercentage = "" + batteryMonitor.getBatteryLevel() + "%";
+        batteryLevel.setText(batteryPercentage);
     }
 
 }

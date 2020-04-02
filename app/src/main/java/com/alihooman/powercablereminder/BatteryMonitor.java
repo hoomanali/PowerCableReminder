@@ -30,8 +30,21 @@ class BatteryMonitor {
      * Determines if device battery is full.
      * @return True if battery is full.
      */
-    public boolean batteryFull() {
+    public boolean isBatteryFull() {
         int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
         return status == BatteryManager.BATTERY_STATUS_FULL;
     }
+
+    /**
+     * Reterns the battery's current charge as a percentage of capacity.
+     * @return Percent charge remaining in battery.
+     */
+    public float getBatteryLevel() {
+        int level = batteryStatus.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+        int scale = batteryStatus.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+        float batteryPercent = level * 100 / (float)scale;
+
+        return batteryPercent;
+    }
+
 }
