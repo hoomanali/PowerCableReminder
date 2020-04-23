@@ -36,6 +36,28 @@ class BatteryMonitor {
     }
 
     /**
+     * Determines if the device is plugged in to a power source.
+     * @return True if device is plugged in to a power source.
+     */
+    public boolean isPowerCableConnected() {
+        int pluggedStatus = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+        if(pluggedStatus > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Determines if the device is unplugged from a power source.
+     * @return True if device is unplugged.
+     */
+    public boolean isPowerCableDisconnected() {
+        return !isPowerCableConnected();
+    }
+
+
+    /**
      * Reterns the battery's current charge as a percentage of capacity.
      * @return Percent charge remaining in battery.
      */

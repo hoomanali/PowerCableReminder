@@ -11,9 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Is battery full?"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/batteryLevel"
         />
 
@@ -23,6 +23,28 @@
         android:layout_height="wrap_content"
         android:text="-1%"
         app:layout_constraintTop_toBottomOf="@+id/batteryFull"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cabledConnected"
+        />
+
+    <TextView
+        android:id="@+id/cabledConnected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Is cable connected?"
+        app:layout_constraintTop_toBottomOf="@+id/batteryLevel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cabledNotConnected"
+        />
+
+    <TextView
+        android:id="@+id/cabledNotConnected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Is cable disconnected?"
+        app:layout_constraintTop_toBottomOf="@+id/cabledConnected"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
