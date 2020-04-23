@@ -69,4 +69,27 @@ class BatteryMonitor {
         return batteryPercent;
     }
 
+    /**
+     * Notifies if cable needs to be plugged in.
+     * @return True if the battery level drops to 20%.
+     */
+    public boolean needToPlugCableIn() {
+        if(getBatteryLevel() <= 20.0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Notifies if cable needs to be unplugged.
+     * @return True if battery level reaches 95%.
+     */
+    public boolean needToUnplugCable() {
+        if(getBatteryLevel() >= 95.0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
